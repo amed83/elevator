@@ -1,0 +1,7 @@
+
+export const MOVE_ELEVATOR = 'MOVE_ELEVATOR'
+export const INSERT_FLOOR =  'INSERT_FLOOR'
+export const REMOVE_FLOOR =  'REMOVE_FLOOR'
+export const START_MOVE = 'START_MOVE'
+export const CLEAR_DATA = 'CLEAR_DATA'
+export const CHECK_ELEVATOR=' CHECK_ELEVATOR'
