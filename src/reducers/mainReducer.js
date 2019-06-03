@@ -12,8 +12,8 @@ const initialState={
     startElevator:false,
     floorToGo:0,
     floorsList:[],
-    floorsIndex:0,
-    stopElevator:false
+    stopElevator:false,
+    restartElevator:false
 }
 
 
@@ -37,7 +37,6 @@ const mainReducer = (state=initialState,action)=>{
         case MOVE_ELEVATOR:
         return{
             ...state,
-            floorsIndex:state.floorsIndex+1,
             floorToGo:state.floorsList[0]
         }
         
@@ -58,9 +57,8 @@ const mainReducer = (state=initialState,action)=>{
         case CLEAR_DATA:
         return{
             ...state,
-            floorsIndex:0,
-            // floorToGo:0,
-            // startElevator:false
+            restartElevator:true,
+            startElevator:false
         }
         
         case REMOVE_FLOOR:

@@ -19,7 +19,7 @@ export const ElevatorWrapper = styled.div`
     border-radius:4px;
     margin:auto;
     margin-top:-15px;
-    transform:${props=>props.animateElevator ?
+    transform:${props=>props.animateElevator || props.restartElevator ?
             `translateY(${getFloor(props.floorToGo)}px)`
         : ''};
     transition:${props=>props.animateElevator ? 'transform 2s': ''}
