@@ -10,7 +10,6 @@ class ButtonComponent extends Component {
     
     moveElevatorMethod(){
         const {floor} = this.props
-        console.log('calling method ', floor)
         this.props.startElevator(floor)
     }
     render(){

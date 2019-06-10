@@ -5,7 +5,8 @@ import {
     REMOVE_FLOOR,
     START_MOVE,
     CLEAR_DATA,
-    CHECK_ELEVATOR
+    CHECK_ELEVATOR,
+    CHECK_FLOORS_ORDER
     
 }from './types'
 
@@ -16,6 +17,10 @@ export const moveElevator =(floor)=>{
         dispatch({
             type:INSERT_FLOOR,
             payload:floor
+        })
+        dispatch({
+            type:CHECK_FLOORS_ORDER,
+          
         })
         if(getState().mainReducer.startElevator){
             return

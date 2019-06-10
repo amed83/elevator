@@ -5,7 +5,6 @@ function getFloor(floor){
     
     if(floor>0){
         let distance = floor*(-120)
-        console.log('distance ', distance)
         return distance
     }
 }

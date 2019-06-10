@@ -11,7 +11,6 @@ export const InsideFloor = styled.div`
 export const FloorWrapper = styled.div`
     height:15%;
     width:100%;
-    /* border:solid black 1px; */
     display:flex;
     justify-content:space-between;
     margin-top:10px;
