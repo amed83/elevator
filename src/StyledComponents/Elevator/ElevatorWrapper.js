@@ -21,7 +21,7 @@ export const ElevatorWrapper = styled.div`
     transform:${props=>props.animateElevator || props.restartElevator ?
             `translateY(${getFloor(props.floorToGo)}px)`
         : ''};
-    transition:${props=>props.animateElevator ? 'transform 2s': ''}
+    transition:${props=>props.animateElevator ? 'transform 3s': ''}
     
 `
 

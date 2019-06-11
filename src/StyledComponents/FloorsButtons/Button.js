@@ -5,7 +5,7 @@ export const Button = styled.div`
     height:100px;
     border-radius:50%;
     background-color:#D4D2D2;
-    border: solid #C0BFBF 2px;
+   
     box-shadow:inset 0px 0px 2px 1px grey, 
         inset 0px -3px 4px rgba(0, 0, 0, 0.3), 
         inset 0px 3px 4px rgba(255, 255, 255, 0.6), 
@@ -23,4 +23,5 @@ export const Button = styled.div`
         font-size:22px;
         font-weight:700;
     }
+    border:${props=> props.selectFloor ? 'solid 2px green':'solid #C0BFBF 2px;'};
 `

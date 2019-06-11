@@ -48,7 +48,7 @@ export const moveElevator =(floor)=>{
             })
         }
         
-        const timer = setInterval(elevatorTimer,2000)
+        const timer = setInterval(elevatorTimer,3000)
 
         
     }

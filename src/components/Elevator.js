@@ -5,14 +5,18 @@ import {connect} from 'react-redux'
 
 
 const Elevator = (props)=>{
-    const {animateElevator,floor,stopElevator,restartElevator}= props    
+    const {animateElevator,floor,stopElevator,restartElevator,where}= props    
     return(
-        <ElevatorWrapper
+        <div>
+            <ElevatorWrapper
             stopElevator={stopElevator}
             restartElevator={restartElevator}
             floorToGo={floor}
             animateElevator={animateElevator}>
-        </ElevatorWrapper>
+            </ElevatorWrapper>
+        
+        </div>
+        
     )        
                 
 }
@@ -22,7 +26,7 @@ const mapStateToProps = state=>{
         animateElevator:state.mainReducer.startElevator,
         floor:state.mainReducer.floorToGo,
         stopElevator:state.mainReducer.stopElevator,
-        restartElevator:state.mainReducer.restartElevator
+        restartElevator:state.mainReducer.restartElevator,
     }
 }
 

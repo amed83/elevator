@@ -13,11 +13,16 @@ class ButtonComponent extends Component {
         this.props.startElevator(floor)
     }
     render(){
-        const {floor} = this.props
+        const {floor,whereIsElevator} = this.props
+        let selectButton=false
+        if(whereIsElevator[0]===floor){
+            selectButton = true
+        }
         
         return(
             <div style={btn}>
                 <Button 
+                    selectFloor= {selectButton}
                     onClick={()=>this.moveElevatorMethod()}
                     variant="contained"
                     color='primary'>
@@ -42,6 +47,12 @@ const mapDispatchToProps = dispatch=>{
     }
 }
 
+const mapStateToProps = state =>{
+    return{
+        whereIsElevator:state.mainReducer.whereIsElevator
+    }
+}
 
 
-export default connect(null,mapDispatchToProps) (ButtonComponent)
+
+export default connect(mapStateToProps,mapDispatchToProps) (ButtonComponent)
