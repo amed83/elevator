@@ -6,7 +6,8 @@ import {
     START_MOVE,
     CLEAR_DATA,
     CHECK_ELEVATOR,
-    CHECK_FLOORS_ORDER
+    CHECK_FLOORS_ORDER,
+    OPEN_DOOR
     
 }from './types'
 
@@ -47,10 +48,17 @@ export const moveElevator =(floor)=>{
                 type:CHECK_ELEVATOR
             })
         }
-        
         const timer = setInterval(elevatorTimer,3000)
 
-        
     }
 
+}
+
+export const openDoor = () =>{
+    return dispatch=>{
+        dispatch({
+            type:OPEN_DOOR
+        })
+    }
+    
 }

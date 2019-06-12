@@ -1,6 +1,6 @@
 
 import React, {Component} from 'react'
-// import Button from '@material-ui/core/Button';
+
 import {connect} from 'react-redux'
 import {moveElevator} from '../actions/index'
 import {Button} from '../StyledComponents/FloorsButtons/Button'

@@ -11,11 +11,12 @@ function getFloor(floor){
 
 
 export const ElevatorWrapper = styled.div`
-    width:100px;
-    height:90px;
+    width:85px;
+    height:95px;
     background-color:white;
-    border:solid black 2px;
-    border-radius:4px;
+    border:solid black 5px;
+    border-top:solid black 8px;
+    /* border-radius:4px; */
     margin:auto;
     margin-top:-15px;
     transform:${props=>props.animateElevator || props.restartElevator ?

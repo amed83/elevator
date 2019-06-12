@@ -6,7 +6,8 @@ import {
     START_MOVE,
     CLEAR_DATA,
     CHECK_ELEVATOR,
-    CHECK_FLOORS_ORDER
+    CHECK_FLOORS_ORDER,
+    OPEN_DOOR
 }from '../actions/types'
 
 const orderUp = [0,1,2,3,4]
@@ -20,7 +21,8 @@ const initialState={
     restartElevator:false,
     direction:'UP',
     whereIsElevator:[0],
-    newFloorsOrder:''
+    newFloorsOrder:'',
+    doorOpen:false
 }
 
 const print = (text, x)=>{
@@ -32,11 +34,11 @@ const mainReducer = (state=initialState,action)=>{
     switch(action.type){
         
         case INSERT_FLOOR : 
-        return{
-            ...state,
-            floorsList:[...state.floorsList,action.payload],
-            stopElevator:false
-        }
+            return{
+                ...state,
+                floorsList:[...state.floorsList,action.payload],
+                stopElevator:false
+            }
         
         case CHECK_FLOORS_ORDER :
             let cloneList=''
@@ -61,59 +63,58 @@ const mainReducer = (state=initialState,action)=>{
                 }
             }
 
-        return {
-            ...state,
-            
-        }    
+            return {
+                ...state,
+                
+            }    
 
         case START_MOVE:
-        
-        return{
-            ...state,
-            startElevator:true,
-        }
-        
-        case MOVE_ELEVATOR:
-        let direction;
-        
-
-    
-        return{
-            ...state,
-            floorToGo:state.floorsList[0],
-            direction
-        }
-        
-        case CHECK_ELEVATOR:
-        if(state.floorsList.length<1){
-
             return{
                 ...state,
-                stopElevator:true,
-                
+                startElevator:true,
             }
-        } 
         
-        return {
-            ...state
-        }
+        case MOVE_ELEVATOR:
+            let direction;
+        
+            return{
+                ...state,
+                floorToGo:state.floorsList[0],
+                direction
+            }
+        case CHECK_ELEVATOR:
+            if(state.floorsList.length<1){
+                return{
+                    ...state,
+                    stopElevator:true,
+                }
+            } 
+            
+            return {
+                ...state
+            }
         
         case CLEAR_DATA:
-        return{
-            ...state,
-            restartElevator:true,
-            startElevator:false
-        }
-        
+            return{
+                ...state,
+                restartElevator:true,
+                startElevator:false
+            }
+            
         case REMOVE_FLOOR:
-        const cloneFloors = [...state.floorsList]
-        let elevatorIsHere = cloneFloors.splice(0,1)
-        return {
-            ...state,
-            floorsList:cloneFloors,
-            whereIsElevator:elevatorIsHere
-        }
+            const cloneFloors = [...state.floorsList]
+            let elevatorIsHere = cloneFloors.splice(0,1)
+            return {
+                ...state,
+                floorsList:cloneFloors,
+                whereIsElevator:elevatorIsHere
+            }
         
+        case OPEN_DOOR:
+            return {
+                ...state,
+                doorOpen:!state.doorOpen
+            }
         
         default:
         return state
